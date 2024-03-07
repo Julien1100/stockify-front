@@ -1,3 +1,5 @@
+import Login from "../components/Login";
+
 export default function LoginLayout() {
-  return <div>LoginLayout</div>;
+  return <Login />;
 }
