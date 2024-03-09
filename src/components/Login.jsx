@@ -15,6 +15,7 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
+import { useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [show, setShow] = useState(false);
@@ -28,6 +29,9 @@ export default function Login() {
   const [password, setPassword] = useState("");
   const handlePassword = (event) => setPassword(event.target.value);
 
+  const navigate = useNavigate();
+
+  // TODO: Refactor to action as a service
   const handleLogin = async (event) => {
     // Login request
     event.preventDefault();
@@ -40,6 +44,7 @@ export default function Login() {
         if (response.data.success) {
           const token = response.data.token;
           localStorage.setItem("token", token);
+          navigate("/");
         }
       })
       .catch((error) => {
