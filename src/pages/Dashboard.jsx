@@ -12,8 +12,6 @@ import {
 
 import { useLoaderData } from "react-router-dom";
 
-import { productsLoader } from "../services/productsLoader";
-
 function Dashboard() {
   const products = useLoaderData();
 
@@ -44,7 +42,9 @@ function Dashboard() {
                   <Td>{product.name}</Td>
                   <Td isNumeric>{product.quantityTotal}</Td>
                   <Td isNumeric>{product.quantityInStock}</Td>
-                  <Td>{product.location}</Td>
+                  <Td>
+                    {product.location ? mapLocation(product.location) : "N/A"}
+                  </Td>
                   <Td>{product.description}</Td>
                   <Td>{product.needBattery ? "Oui" : "Non"}</Td>
                   <Td>{product.frozen ? "Oui" : "Non"}</Td>
@@ -58,5 +58,19 @@ function Dashboard() {
     </Box>
   );
 }
+
+// Map pour remplacer les valeurs de location
+const mapLocation = (location) => {
+  switch (location) {
+    case "":
+      return "N/A";
+    case "shelf":
+      return "Étagère";
+    case "freezer":
+      return "Congélateur";
+    default:
+      return location;
+  }
+};
 
 export default Dashboard;
