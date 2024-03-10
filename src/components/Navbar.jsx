@@ -10,7 +10,16 @@ import {
   Text,
 } from "@chakra-ui/react";
 
+import { handleLogout } from "../services/logout";
+import { useNavigate } from "react-router-dom";
+
 export default function Navbar() {
+  const navigate = useNavigate();
+
+  const logout = () => {
+    handleLogout(navigate);
+  };
+
   return (
     <Box>
       <Flex
@@ -27,7 +36,9 @@ export default function Navbar() {
         <HStack spacing={2}>
           <Avatar name="Julien Milcent" bg={"blue.500"} />
           <Text>jul.milcent@gmail.com</Text>
-          <Button colorScheme="blue">Déconnexion</Button>
+          <Button colorScheme="blue" onClick={logout}>
+            Déconnexion
+          </Button>
         </HStack>
       </Flex>
     </Box>
