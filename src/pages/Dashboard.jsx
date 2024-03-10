@@ -10,7 +10,11 @@ import {
   Tr,
 } from "@chakra-ui/react";
 
+import { useLoaderData } from "react-router-dom";
+
 function Dashboard() {
+  const products = useLoaderData();
+
   return (
     <Box px="40px">
       <Heading py={5}>Dashboard</Heading>
@@ -32,299 +36,21 @@ function Dashboard() {
             </Thead>
             <Tbody>
               {/* Repeat with .map */}
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
 
-              {/* DUMMY CONTENT */}
-
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
-              <Tr>
-                <Td>Croissant au beurre</Td>
-                <Td isNumeric>100</Td>
-                <Td isNumeric>50</Td>
-                <Td>Étagère</Td>
-                <Td>Délicieux croissants au beurre frais.</Td>
-                <Td></Td>
-                <Td>Non</Td>
-                <Td>Oui</Td>
-              </Tr>
+              {products.map((product) => (
+                <Tr key={product._id}>
+                  <Td>{product.name}</Td>
+                  <Td isNumeric>{product.quantityTotal}</Td>
+                  <Td isNumeric>{product.quantityInStock}</Td>
+                  <Td>
+                    {product.location ? mapLocation(product.location) : "N/A"}
+                  </Td>
+                  <Td>{product.description}</Td>
+                  <Td>{product.needBattery ? "Oui" : "Non"}</Td>
+                  <Td>{product.frozen ? "Oui" : "Non"}</Td>
+                  <Td>{product.hasExpirationDate ? "Oui" : "Non"}</Td>
+                </Tr>
+              ))}
             </Tbody>
           </Table>
         </TableContainer>
@@ -332,5 +58,19 @@ function Dashboard() {
     </Box>
   );
 }
+
+// Map pour remplacer les valeurs de location
+const mapLocation = (location) => {
+  switch (location) {
+    case "":
+      return "N/A";
+    case "shelf":
+      return "Étagère";
+    case "freezer":
+      return "Congélateur";
+    default:
+      return location;
+  }
+};
 
 export default Dashboard;
