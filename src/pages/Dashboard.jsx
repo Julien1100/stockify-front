@@ -10,10 +10,11 @@ import {
   Tr,
 } from "@chakra-ui/react";
 
-import { useLoaderData } from "react-router-dom";
+import { Link, useLoaderData, useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const products = useLoaderData();
+  const navigate = useNavigate();
 
   return (
     <Box px="40px">
@@ -38,7 +39,13 @@ function Dashboard() {
               {/* Repeat with .map */}
 
               {products.map((product) => (
-                <Tr key={product._id}>
+                <Tr
+                  key={product._id}
+                  onClick={() =>
+                    navigate(`/products/${product._id.toString()}`)
+                  }
+                  style={{ cursor: "pointer" }}
+                >
                   <Td>{product.name}</Td>
                   <Td isNumeric>{product.quantityTotal}</Td>
                   <Td isNumeric>{product.quantityInStock}</Td>

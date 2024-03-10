@@ -11,9 +11,11 @@ import LoginLayout from "./layouts/LoginLayout";
 import Dashboard from "./pages/Dashboard";
 import Create from "./pages/Create";
 import Profile from "./pages/Profile";
+import ProductDetails from "./pages/ProductDetails";
 
 // services
 import { productsLoader } from "./services/productsLoader";
+import { productDetailsLoader } from "./services/productLoader";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
@@ -21,6 +23,13 @@ const router = createBrowserRouter(
       <Route path="login" element={<LoginLayout />} />
       <Route element={<RootLayout />}>
         <Route index element={<Dashboard />} loader={productsLoader} />
+        <Route path="products">
+          <Route
+            path=":id"
+            element={<ProductDetails />}
+            loader={productDetailsLoader}
+          />
+        </Route>
         <Route path="create" element={<Create />} />
         <Route path="profile" element={<Profile />} />
       </Route>
