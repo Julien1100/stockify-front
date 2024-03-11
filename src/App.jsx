@@ -9,9 +9,9 @@ import {
 import RootLayout from "./layouts/RootLayout";
 import LoginLayout from "./layouts/LoginLayout";
 import Dashboard from "./pages/Dashboard";
-import Create from "./pages/Create";
 import Profile from "./pages/Profile";
 import ProductDetails from "./pages/ProductDetails";
+import NewProduct from "./pages/NewProduct";
 
 // services
 import { productsLoader } from "./services/productsLoader";
@@ -29,8 +29,8 @@ const router = createBrowserRouter(
             element={<ProductDetails />}
             loader={productDetailsLoader}
           />
+          <Route path="new" element={<NewProduct />} />
         </Route>
-        <Route path="create" element={<Create />} />
         <Route path="profile" element={<Profile />} />
       </Route>
     </Route>
