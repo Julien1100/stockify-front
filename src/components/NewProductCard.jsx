@@ -10,11 +10,6 @@ import {
   FormLabel,
   HStack,
   Input,
-  NumberDecrementStepper,
-  NumberIncrementStepper,
-  NumberInput,
-  NumberInputField,
-  NumberInputStepper,
   Select,
   Stack,
   StackDivider,
@@ -44,11 +39,6 @@ export default function NewProductCard() {
       [name]: type === "checkbox" ? checked : value,
     }));
   };
-
-  // const handleSubmit = (e) => {
-  //   e.preventDefault();
-  //   console.log("Données du formulaire :", formData);
-  // };
 
   const handleSubmit = async (e) => {
     e.preventDefault();
