@@ -1,5 +1,7 @@
 import {
   Box,
+  Button,
+  Flex,
   Heading,
   Table,
   TableContainer,
@@ -10,7 +12,7 @@ import {
   Tr,
 } from "@chakra-ui/react";
 
-import { Link, useLoaderData, useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 function Dashboard() {
   const products = useLoaderData();
@@ -18,7 +20,12 @@ function Dashboard() {
 
   return (
     <Box px="40px">
-      <Heading py={5}>Dashboard</Heading>
+      <Flex alignItems={"center"} justifyContent={"space-between"}>
+        <Heading py={5}>Dashboard</Heading>
+        <Button onClick={() => navigate("products/new")}>
+          Nouveau produit
+        </Button>
+      </Flex>
 
       <Box>
         <TableContainer overflowY="scroll" maxH={"80vh"}>
@@ -36,8 +43,6 @@ function Dashboard() {
               </Tr>
             </Thead>
             <Tbody>
-              {/* Repeat with .map */}
-
               {products.map((product) => (
                 <Tr
                   key={product._id}

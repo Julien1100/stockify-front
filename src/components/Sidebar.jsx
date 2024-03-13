@@ -26,13 +26,6 @@ export default function Sidebar() {
         </ListItem>
 
         <ListItem>
-          <NavLink to="create">
-            <ListIcon as={PlusSquareIcon} />
-            Nouveau produit
-          </NavLink>
-        </ListItem>
-
-        <ListItem>
           <NavLink to="profile">
             <ListIcon as={AtSignIcon} />
             Profile
