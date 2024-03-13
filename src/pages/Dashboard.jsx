@@ -36,7 +36,6 @@ function Dashboard() {
                 <Th isNumeric>Quantité totale</Th>
                 <Th isNumeric>Quantité en stock</Th>
                 <Th>Stockage</Th>
-                <Th>Description</Th>
                 <Th>Batteries ?</Th>
                 <Th>Congelé ?</Th>
                 <Th>Date d'expiration ?</Th>
@@ -57,7 +56,6 @@ function Dashboard() {
                   <Td>
                     {product.location ? mapLocation(product.location) : "N/A"}
                   </Td>
-                  <Td>{product.description}</Td>
                   <Td>{product.needBattery ? "Oui" : "Non"}</Td>
                   <Td>{product.frozen ? "Oui" : "Non"}</Td>
                   <Td>{product.hasExpirationDate ? "Oui" : "Non"}</Td>
@@ -74,7 +72,7 @@ function Dashboard() {
 // Map pour remplacer les valeurs de location
 const mapLocation = (location) => {
   switch (location) {
-    case "":
+    case "none":
       return "N/A";
     case "shelf":
       return "Étagère";
