@@ -1,3 +1,4 @@
+import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
 import {
   Box,
   Card,
@@ -61,8 +62,12 @@ export default function ProductDetails() {
                 <Heading size={"xs"} textTransform={"uppercase"}>
                   Batteries ?
                 </Heading>
-                <Text pt={2} fontSize={"sm"}>
-                  {product.needBattery ? "Oui" : "Non"}
+                <Text pt={2} fontSize={"sm"} textAlign={"center"}>
+                  {product.needBattery ? (
+                    <CheckIcon color={"green"} />
+                  ) : (
+                    <CloseIcon color={"red"} />
+                  )}
                 </Text>
               </Box>
 
@@ -70,8 +75,12 @@ export default function ProductDetails() {
                 <Heading size={"xs"} textTransform={"uppercase"}>
                   Congelé ?
                 </Heading>
-                <Text pt={2} fontSize={"sm"}>
-                  {product.frozen ? "Oui" : "Non"}
+                <Text pt={2} fontSize={"sm"} textAlign={"center"}>
+                  {product.frozen ? (
+                    <CheckIcon color={"green"} />
+                  ) : (
+                    <CloseIcon color={"red"} />
+                  )}
                 </Text>
               </Box>
 
@@ -79,8 +88,12 @@ export default function ProductDetails() {
                 <Heading size={"xs"} textTransform={"uppercase"}>
                   Date d'expiration ?
                 </Heading>
-                <Text pt={2} fontSize={"sm"}>
-                  {product.hasExpirationDate ? "Oui" : "Non"}
+                <Text pt={2} fontSize={"sm"} textAlign={"center"}>
+                  {product.hasExpirationDate ? (
+                    <CheckIcon color={"green"} />
+                  ) : (
+                    <CloseIcon color={"red"} />
+                  )}
                 </Text>
               </Box>
             </HStack>
