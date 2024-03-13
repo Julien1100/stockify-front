@@ -18,6 +18,7 @@ import {
 import axios from "axios";
 
 import { useState } from "react";
+import { useNavigate } from "react-router-dom";
 
 export default function NewProductCard() {
   const [formData, setFormData] = useState({
@@ -31,6 +32,8 @@ export default function NewProductCard() {
     location: "",
     __t: "",
   });
+
+  const navigate = useNavigate();
 
   const handleChange = (e) => {
     const { name, value, type, checked } = e.target;
@@ -59,17 +62,15 @@ export default function NewProductCard() {
         },
       };
 
-      console.log(formData);
-
       // Effectuer la requête POST avec Axios
-      const response = await axios.post(
+      await axios.post(
         `${import.meta.env.VITE_API_URL}/products/create`,
         formData,
         config
       );
 
       // Vérifier la réponse et afficher un message en conséquence
-      console.log("Réponse du serveur :", response.data);
+      navigate("/");
       alert("Produit ajouté avec succès !");
     } catch (error) {
       // Gérer les erreurs de la requête
