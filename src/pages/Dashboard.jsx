@@ -1,3 +1,4 @@
+import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -56,9 +57,27 @@ function Dashboard() {
                   <Td>
                     {product.location ? mapLocation(product.location) : "N/A"}
                   </Td>
-                  <Td>{product.needBattery ? "Oui" : "Non"}</Td>
-                  <Td>{product.frozen ? "Oui" : "Non"}</Td>
-                  <Td>{product.hasExpirationDate ? "Oui" : "Non"}</Td>
+                  <Td textAlign={"center"}>
+                    {product.needBattery ? (
+                      <CheckIcon color={"green"} />
+                    ) : (
+                      <CloseIcon color={"red"} />
+                    )}
+                  </Td>
+                  <Td textAlign={"center"}>
+                    {product.frozen ? (
+                      <CheckIcon color={"green"} />
+                    ) : (
+                      <CloseIcon color={"red"} />
+                    )}
+                  </Td>
+                  <Td textAlign={"center"}>
+                    {product.hasExpirationDate ? (
+                      <CheckIcon color={"green"} />
+                    ) : (
+                      <CloseIcon color={"red"} />
+                    )}
+                  </Td>
                 </Tr>
               ))}
             </Tbody>
