@@ -15,12 +15,18 @@ import {
 } from "@chakra-ui/react";
 
 import { MdDelete, MdEdit } from "react-icons/md";
-// import { Edit } from "react-icons/md";
 
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
+import { productDelete } from "../services/productLoader";
 
 export default function ProductDetails() {
   const product = useLoaderData();
+  const navigate = useNavigate();
+
+  const handleDelete = async () => {
+    productDelete({ product });
+    navigate("/");
+  };
 
   return (
     <Container>
@@ -128,6 +134,7 @@ export default function ProductDetails() {
             variant={"ghost"}
             colorScheme="red"
             leftIcon={<MdDelete />}
+            onClick={handleDelete}
           >
             Supprimer
           </Button>
