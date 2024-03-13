@@ -42,7 +42,7 @@ export default function ProductDetails() {
                 <Heading size={"xs"} textTransform={"uppercase"}>
                   Quantité en stock
                 </Heading>
-                <Text pt={2} fontSize={"sm"}>
+                <Text pt={2} fontSize={"sm"} textAlign={"center"}>
                   {product.quantityInStock}
                 </Text>
               </Box>
@@ -51,7 +51,7 @@ export default function ProductDetails() {
                 <Heading size={"xs"} textTransform={"uppercase"}>
                   Quantité totale
                 </Heading>
-                <Text pt={2} fontSize={"sm"}>
+                <Text pt={2} fontSize={"sm"} textAlign={"center"}>
                   {product.quantityTotal}
                 </Text>
               </Box>
