@@ -1,8 +1,10 @@
-import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
+import { CheckIcon, CloseIcon, Icon } from "@chakra-ui/icons";
 import {
   Box,
+  Button,
   Card,
   CardBody,
+  CardFooter,
   CardHeader,
   Container,
   HStack,
@@ -11,6 +13,9 @@ import {
   StackDivider,
   Text,
 } from "@chakra-ui/react";
+
+import { MdDelete, MdEdit } from "react-icons/md";
+// import { Edit } from "react-icons/md";
 
 import { useLoaderData } from "react-router-dom";
 
@@ -108,6 +113,25 @@ export default function ProductDetails() {
             </Box>
           </Stack>
         </CardBody>
+
+        <CardFooter justify={"space-between"} flexWrap={"wrap"}>
+          <Button
+            flex={"1"}
+            variant={"ghost"}
+            colorScheme="blue"
+            leftIcon={<MdEdit />}
+          >
+            Modifier
+          </Button>
+          <Button
+            flex={"1"}
+            variant={"ghost"}
+            colorScheme="red"
+            leftIcon={<MdDelete />}
+          >
+            Supprimer
+          </Button>
+        </CardFooter>
       </Card>
     </Container>
   );
