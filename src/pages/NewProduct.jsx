@@ -1,3 +1,10 @@
+import { Container } from "@chakra-ui/react";
+import NewProductCard from "../components/NewProductCard";
+
 export default function NewProduct() {
-  return <div>NewProduct</div>;
+  return (
+    <Container>
+      <NewProductCard />
+    </Container>
+  );
 }
