@@ -11,10 +11,9 @@ import {
   Text,
 } from "@chakra-ui/react";
 
-import { useLoaderData, useParams } from "react-router-dom";
+import { useLoaderData } from "react-router-dom";
 
 export default function ProductDetails() {
-  // const { id } = useParams();
   const product = useLoaderData();
 
   return (
@@ -104,7 +103,7 @@ export default function ProductDetails() {
 // Map pour remplacer les valeurs de location
 const mapLocation = (location) => {
   switch (location) {
-    case "":
+    case "none":
       return "N/A";
     case "shelf":
       return "Étagère";
