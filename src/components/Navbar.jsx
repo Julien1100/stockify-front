@@ -2,7 +2,6 @@ import {
   Avatar,
   Box,
   Button,
-  Divider,
   Flex,
   HStack,
   Heading,
@@ -11,9 +10,11 @@ import {
 } from "@chakra-ui/react";
 
 import { handleLogout } from "../services/logout";
-import { useNavigate } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 
 export default function Navbar() {
+  const user = useLoaderData();
+
   const navigate = useNavigate();
 
   const logout = () => {
@@ -34,8 +35,8 @@ export default function Navbar() {
         <Spacer />
 
         <HStack spacing={2}>
-          <Avatar name="Julien Milcent" bg={"blue.500"} />
-          <Text>jul.milcent@gmail.com</Text>
+          <Avatar name={`${user.firstName} ${user.lastName}`} bg={"blue.500"} />
+          <Text>{user.email}</Text>
           <Button colorScheme="blue" onClick={logout}>
             Déconnexion
           </Button>

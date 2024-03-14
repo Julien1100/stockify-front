@@ -16,12 +16,13 @@ import NewProduct from "./pages/NewProduct";
 // services
 import { productsLoader } from "./services/productsLoader";
 import { productDetailsLoader } from "./services/productLoader";
+import { userLoader } from "./services/userLoader";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route path="login" element={<LoginLayout />} />
-      <Route element={<RootLayout />}>
+      <Route element={<RootLayout />} loader={userLoader}>
         <Route index element={<Dashboard />} loader={productsLoader} />
         <Route path="products">
           <Route

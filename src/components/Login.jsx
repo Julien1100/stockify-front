@@ -43,7 +43,9 @@ export default function Login() {
       .then((response) => {
         if (response.data.success) {
           const token = response.data.token;
+          const userId = response.data.userId;
           localStorage.setItem("token", token);
+          localStorage.setItem("userId", userId);
           navigate("/");
         }
       })
