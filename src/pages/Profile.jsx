@@ -28,7 +28,7 @@ export default function Profile() {
               <Heading>
                 {user.firstName} {user.lastName}
               </Heading>
-              <Text textTransform={"capitalize"}>{user.role}</Text>
+              <Text>{roleMap[user.role]}</Text>
             </Box>
           </Flex>
         </CardHeader>
@@ -46,3 +46,9 @@ export default function Profile() {
     </Container>
   );
 }
+
+const roleMap = {
+  user: "Utilisateur",
+  administrator: "Administrateur",
+  admin: "Administrateur",
+};
