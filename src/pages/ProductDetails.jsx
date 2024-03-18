@@ -28,6 +28,10 @@ export default function ProductDetails() {
     navigate("/");
   };
 
+  const handleUpdate = async () => {
+    navigate("edit");
+  };
+
   return (
     <Container>
       <Card my={10}>
@@ -126,6 +130,7 @@ export default function ProductDetails() {
             variant={"ghost"}
             colorScheme="blue"
             leftIcon={<MdEdit />}
+            onClick={handleUpdate}
           >
             Modifier
           </Button>
