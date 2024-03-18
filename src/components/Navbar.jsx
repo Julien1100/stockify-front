@@ -22,25 +22,26 @@ export default function Navbar() {
   };
 
   return (
-    <Box>
+    <Box background={"blue.500"}>
       <Flex
         as={"nav"}
         justifyContent="space-between"
         alignItems={"center"}
         px={"40px"}
         py={"20px"}
-        borderBottom={"1.5px solid white"}
       >
-        <Heading as="h3">Navbar</Heading>
-        <Spacer />
-
         <HStack spacing={2}>
-          <Avatar name={`${user.firstName} ${user.lastName}`} bg={"blue.500"} />
-          <Text>{user.email}</Text>
-          <Button colorScheme="blue" onClick={logout}>
-            Déconnexion
-          </Button>
+          <Avatar
+            name={`${user.firstName} ${user.lastName}`}
+            bgColor={"blue.300"}
+            color={"white"}
+          />
+          <Text fontSize={"lg"}>{user.email}</Text>
         </HStack>
+        <Spacer />
+        <Button colorScheme="blue" onClick={logout}>
+          Déconnexion
+        </Button>
       </Flex>
     </Box>
   );
