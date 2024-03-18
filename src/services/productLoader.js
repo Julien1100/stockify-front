@@ -59,3 +59,39 @@ export const productDelete = async ({ product }) => {
     throw error;
   }
 };
+
+export const productUpdate = async ({ product }) => {
+  try {
+    // Récupérer le token depuis le localStorage
+    const token = localStorage.getItem("token");
+
+    if (!token) {
+      throw new Error("Token not found");
+    }
+
+    // Configurer les headers avec le token d'authentification
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    // Effectuer la requête PATCH avec Axios pour mettre à jour le produit
+    const response = await axios.put(
+      `${import.meta.env.VITE_API_URL}/products/update/${product._id}`,
+      product,
+      config
+    );
+
+    // Vérifier la réponse et retourner les données mises à jour
+    if (response.data) {
+      return response.data;
+    } else {
+      throw new Error("Failed to update product");
+    }
+  } catch (error) {
+    // Gérer les erreurs
+    console.error("Error updating product:", error);
+    throw error;
+  }
+};

@@ -12,6 +12,7 @@ import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import ProductDetails from "./pages/ProductDetails";
 import NewProduct from "./pages/NewProduct";
+import UpdateProduct from "./pages/UpdateProduct";
 
 // services
 import { productsLoader } from "./services/productsLoader";
@@ -31,6 +32,11 @@ const router = createBrowserRouter(
             loader={productDetailsLoader}
           />
           <Route path="new" element={<NewProduct />} />
+          <Route
+            path=":id/edit"
+            element={<UpdateProduct />}
+            loader={productDetailsLoader}
+          />
         </Route>
         <Route path="profile" element={<Profile />} loader={userLoader} />
       </Route>
