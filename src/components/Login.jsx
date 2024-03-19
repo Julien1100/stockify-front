@@ -3,6 +3,7 @@ import axios from "axios";
 
 import {
   Button,
+  ButtonGroup,
   Card,
   CardBody,
   CardHeader,
@@ -15,7 +16,7 @@ import {
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
-import { useNavigate } from "react-router-dom";
+import { NavLink, useNavigate } from "react-router-dom";
 
 export default function Login() {
   const [show, setShow] = useState(false);
@@ -72,6 +73,7 @@ export default function Login() {
                   type="email"
                   placeholder="Entrez votre adresse mail…"
                   mb={4}
+                  isRequired
                 />
 
                 <FormLabel>Mot de passe</FormLabel>
@@ -82,15 +84,30 @@ export default function Login() {
                     pr={"4.5rem"}
                     type={show ? "text" : "password"}
                     placeholder="Entrez votre mot de passe…"
+                    isRequired
                   />
                   <InputRightElement w={"4.5rem"}>
-                    <Button h={"1.75rem"} size="sm" onClick={handleClick}>
+                    <Button
+                      colorScheme="blue"
+                      h={"1.75rem"}
+                      size="sm"
+                      onClick={handleClick}
+                    >
                       {show ? "Hide" : "Show"}
                     </Button>
                   </InputRightElement>
                 </InputGroup>
 
-                <Button type="submit">Connexion</Button>
+                <ButtonGroup gap={4}>
+                  <Button colorScheme="blue" type="submit">
+                    Connexion
+                  </Button>
+                  <NavLink to="/register">
+                    <Button variant={"ghost"} colorScheme="blue">
+                      Créer un compte
+                    </Button>
+                  </NavLink>
+                </ButtonGroup>
               </FormControl>
             </form>
           </CardBody>
