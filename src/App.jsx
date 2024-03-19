@@ -5,9 +5,12 @@ import {
   createRoutesFromElements,
 } from "react-router-dom";
 
-// layouts and pages
+// layouts
 import RootLayout from "./layouts/RootLayout";
 import LoginLayout from "./layouts/LoginLayout";
+import RegisterLayout from "./layouts/RegisterLayout";
+
+// pages
 import Dashboard from "./pages/Dashboard";
 import Profile from "./pages/Profile";
 import ProductDetails from "./pages/ProductDetails";
@@ -18,11 +21,17 @@ import UpdateProduct from "./pages/UpdateProduct";
 import { productsLoader } from "./services/productsLoader";
 import { productDetailsLoader } from "./services/productLoader";
 import { userLoader } from "./services/userLoader";
+import { registerAction } from "./components/Register";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
     <Route path="/">
       <Route path="login" element={<LoginLayout />} />
+      <Route
+        path="register"
+        element={<RegisterLayout />}
+        action={registerAction}
+      />
       <Route element={<RootLayout />} loader={userLoader}>
         <Route index element={<Dashboard />} loader={productsLoader} />
         <Route path="products">
