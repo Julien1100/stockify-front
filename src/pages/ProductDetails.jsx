@@ -1,4 +1,4 @@
-import { CheckIcon, CloseIcon, Icon } from "@chakra-ui/icons";
+import { CheckIcon, CloseIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,
@@ -18,10 +18,14 @@ import { MdDelete, MdEdit } from "react-icons/md";
 
 import { useLoaderData, useNavigate } from "react-router-dom";
 import { productDelete } from "../services/productLoader";
+import { jwtDecode } from "jwt-decode";
 
 export default function ProductDetails() {
   const product = useLoaderData();
   const navigate = useNavigate();
+
+  const tokenDecoded = jwtDecode(localStorage.getItem("token"));
+  const role = tokenDecoded.userData.role;
 
   const handleDelete = async () => {
     productDelete({ product });
@@ -134,15 +138,17 @@ export default function ProductDetails() {
           >
             Modifier
           </Button>
-          <Button
-            flex={"1"}
-            variant={"ghost"}
-            colorScheme="red"
-            leftIcon={<MdDelete />}
-            onClick={handleDelete}
-          >
-            Supprimer
-          </Button>
+          {role !== "user" && (
+            <Button
+              flex={"1"}
+              variant={"ghost"}
+              colorScheme="red"
+              leftIcon={<MdDelete />}
+              onClick={handleDelete}
+            >
+              Supprimer
+            </Button>
+          )}
         </CardFooter>
       </Card>
     </Container>
