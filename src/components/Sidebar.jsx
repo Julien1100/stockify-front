@@ -1,6 +1,7 @@
 import { AtSignIcon, DragHandleIcon, PlusSquareIcon } from "@chakra-ui/icons";
 import {
   Box,
+  Button,
   Divider,
   Heading,
   List,
@@ -20,15 +21,19 @@ export default function Sidebar() {
       <List py={"20px"} fontSize={"1.1em"} spacing={4}>
         <ListItem>
           <NavLink to="/">
-            <ListIcon as={DragHandleIcon} />
-            Dashboard
+            <Button colorScheme="blue" size={"lg"}>
+              <ListIcon as={DragHandleIcon} />
+              Dashboard
+            </Button>
           </NavLink>
         </ListItem>
 
         <ListItem>
           <NavLink to="profile">
-            <ListIcon as={AtSignIcon} />
-            Profile
+            <Button colorScheme="blue" size={"lg"}>
+              <ListIcon as={AtSignIcon} />
+              Profile
+            </Button>
           </NavLink>
         </ListItem>
       </List>
