@@ -64,52 +64,59 @@ export default function Register() {
                   </FormLabel>
                 </Flex>
 
-                <FormLabel>Rôle</FormLabel>
-                <Select
-                  name="role"
-                  mb={4}
-                  placeholder="Choisissez votre rôle…"
-                  isRequired
-                >
-                  <option value={"user"}>Utilisateur</option>
-                  <option value={"moderator"}>Modérateur</option>
-                  <option value={"admin"}>Administrateur</option>
-                </Select>
+                <FormLabel>
+                  Rôle
+                  <Select
+                    name="role"
+                    mb={4}
+                    placeholder="Choisissez votre rôle…"
+                    isRequired
+                  >
+                    <option value={"user"}>Utilisateur</option>
+                    <option value={"moderator"}>Modérateur</option>
+                    <option value={"admin"}>Administrateur</option>
+                  </Select>
+                </FormLabel>
 
-                <FormLabel>Adresse mail</FormLabel>
-                <Input
-                  type="email"
-                  name="email"
-                  placeholder="Entrez votre adresse mail…"
-                  mb={data ? 0 : 4}
-                  isRequired
-                />
-                {data && data.error && (
-                  <FormHelperText mb={4} color={"red"}>
-                    {data.error}
-                  </FormHelperText>
-                )}
-
-                <FormLabel>Mot de passe</FormLabel>
-                <InputGroup mb={4}>
+                <FormLabel>
+                  Adresse mail
                   <Input
-                    type={show ? "text" : "password"}
-                    name="password"
-                    pr={"4.5rem"}
-                    placeholder="Entrez votre mot de passe…"
+                    type="email"
+                    name="email"
+                    placeholder="Entrez votre adresse mail…"
+                    mb={data ? 0 : 4}
                     isRequired
                   />
-                  <InputRightElement w={"4.5rem"}>
-                    <Button
-                      colorScheme="blue"
-                      h={"1.75rem"}
-                      size="sm"
-                      onClick={handleClick}
-                    >
-                      {show ? "Hide" : "Show"}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
+                  {data && data.error && (
+                    <FormHelperText mb={4} color={"red"}>
+                      {data.error}
+                    </FormHelperText>
+                  )}
+                </FormLabel>
+
+                <FormLabel>
+                  Mot de passe
+                  <InputGroup mb={4}>
+                    <Input
+                      type={show ? "text" : "password"}
+                      name="password"
+                      pr={"4.5rem"}
+                      mb={4}
+                      placeholder="Entrez votre mot de passe…"
+                      isRequired
+                    />
+                    <InputRightElement w={"4.5rem"}>
+                      <Button
+                        colorScheme="blue"
+                        h={"1.75rem"}
+                        size="sm"
+                        onClick={handleClick}
+                      >
+                        {show ? "Hide" : "Show"}
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
+                </FormLabel>
 
                 <ButtonGroup gap={4}>
                   <Button colorScheme="blue" type="submit">
