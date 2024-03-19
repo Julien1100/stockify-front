@@ -17,9 +17,8 @@ import {
   Select,
 } from "@chakra-ui/react";
 
-import axios from "axios";
 import { useState } from "react";
-import { Form, redirect, useActionData } from "react-router-dom";
+import { Form, NavLink, useActionData } from "react-router-dom";
 
 export default function Register() {
   const [show, setShow] = useState(false);
@@ -122,6 +121,11 @@ export default function Register() {
                   <Button colorScheme="blue" type="submit">
                     Enregistrer
                   </Button>
+                  <NavLink to="/login">
+                    <Button variant={"ghost"} colorScheme="blue">
+                      Login
+                    </Button>
+                  </NavLink>
                 </ButtonGroup>
               </FormControl>
             </Form>
@@ -131,31 +135,3 @@ export default function Register() {
     </Center>
   );
 }
-
-export const registerAction = async ({ request }) => {
-  const data = await request.formData();
-
-  const submission = {
-    firstName: data.get("firstName"),
-    lastName: data.get("lastName"),
-    email: data.get("email"),
-    password: data.get("password"),
-    role: data.get("role"),
-  };
-
-  try {
-    const response = await axios.post(
-      `${import.meta.env.VITE_API_URL}/user/register`,
-      submission
-    );
-    if (response.status === 201) {
-      // Ajouter une alerte
-      return redirect("/login");
-    }
-  } catch (error) {
-    if (error.response.status === 400) {
-      return { error: error.response.data };
-    }
-  }
-  return null;
-};

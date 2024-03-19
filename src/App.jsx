@@ -21,7 +21,7 @@ import UpdateProduct from "./pages/UpdateProduct";
 import { productsLoader } from "./services/productsLoader";
 import { productDetailsLoader } from "./services/productLoader";
 import { userLoader } from "./services/userLoader";
-import { registerAction } from "./components/Register";
+import { registerAction } from "./services/registerAction";
 
 const router = createBrowserRouter(
   createRoutesFromElements(
