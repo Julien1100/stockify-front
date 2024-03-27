@@ -1,15 +1,13 @@
 import axios from "axios";
 import { redirect } from "react-router-dom";
 
-export const registerAction = async ({ request }) => {
-  const data = await request.formData();
-
+export const registerAction = async (formData) => {
   const submission = {
-    firstName: data.get("firstName"),
-    lastName: data.get("lastName"),
-    email: data.get("email"),
-    password: data.get("password"),
-    role: data.get("role"),
+    firstName: formData.get("firstName"),
+    lastName: formData.get("lastName"),
+    email: formData.get("email"),
+    password: formData.get("password"),
+    role: formData.get("role"),
   };
 
   try {

@@ -1,4 +1,4 @@
-import { AtSignIcon, DragHandleIcon, PlusSquareIcon } from "@chakra-ui/icons";
+import { AtSignIcon, DragHandleIcon } from "@chakra-ui/icons";
 import {
   Box,
   Button,

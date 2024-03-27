@@ -1,9 +1,18 @@
-import { Outlet } from "react-router-dom";
+import { Outlet, useNavigate } from "react-router-dom";
 import { Grid, GridItem } from "@chakra-ui/react";
 import Navbar from "../components/Navbar";
 import Sidebar from "../components/Sidebar";
+import { useEffect } from "react";
 
 export default function RootLayout() {
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    if (localStorage.getItem("token") === null) {
+      navigate("/login");
+    }
+  }, []);
+
   return (
     <div>
       <Grid templateColumns="repeat(6, 1fr)">

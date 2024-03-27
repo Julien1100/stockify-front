@@ -4,16 +4,29 @@ import {
   Button,
   Flex,
   HStack,
-  Heading,
   Spacer,
   Text,
 } from "@chakra-ui/react";
 
 import { handleLogout } from "../services/logout";
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { userLoader } from "../services/userLoader";
 
 export default function Navbar() {
-  const user = useLoaderData();
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const data = await userLoader();
+        setUser(data);
+      } catch (error) {
+        console.error("Error fecting user data", error);
+      }
+    };
+    fetchUserData();
+  }, []);
 
   const navigate = useNavigate();
 

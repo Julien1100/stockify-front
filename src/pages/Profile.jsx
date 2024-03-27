@@ -9,10 +9,23 @@ import {
   Heading,
   Text,
 } from "@chakra-ui/react";
-import { useLoaderData } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { userLoader } from "../services/userLoader";
 
 export default function Profile() {
-  const user = useLoaderData();
+  const [user, setUser] = useState([]);
+
+  useEffect(() => {
+    const fetchUserData = async () => {
+      try {
+        const data = await userLoader();
+        setUser(data);
+      } catch (error) {
+        console.error("Error fetching user data", error);
+      }
+    };
+    fetchUserData();
+  }, []);
 
   return (
     <Container>

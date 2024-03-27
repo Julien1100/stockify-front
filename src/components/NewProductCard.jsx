@@ -48,7 +48,6 @@ export default function NewProductCard() {
 
     try {
       // Récupérer le token
-      // TODO: Context
       const token = localStorage.getItem("token");
 
       if (!token) {

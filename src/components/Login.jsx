@@ -32,7 +32,6 @@ export default function Login() {
 
   const navigate = useNavigate();
 
-  // TODO: Refactor to action as a service
   const handleLogin = async (event) => {
     // Login request
     event.preventDefault();
