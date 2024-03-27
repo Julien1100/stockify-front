@@ -15,14 +15,26 @@ import {
   Stack,
   StackDivider,
 } from "@chakra-ui/react";
-import { useState } from "react";
-import { useLoaderData, useNavigate, useParams } from "react-router-dom";
-import { productUpdate } from "../services/productLoader";
+import { useEffect, useState } from "react";
+import { useNavigate, useParams } from "react-router-dom";
+import { productDetailsLoader, productUpdate } from "../services/productLoader";
 
 export default function UpdateProduct() {
   const navigate = useNavigate();
   const { id } = useParams();
-  const [product, setProduct] = useState(useLoaderData());
+  const [product, setProduct] = useState({});
+
+  useEffect(() => {
+    const fecthProductData = async () => {
+      try {
+        const data = await productDetailsLoader(id);
+        setProduct(data);
+      } catch (error) {
+        console.error("Error fectching product data", error);
+      }
+    };
+    fecthProductData();
+  }, []);
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -39,7 +51,7 @@ export default function UpdateProduct() {
               <FormLabel>Nom du produit</FormLabel>
               <Input
                 type="text"
-                value={product.name}
+                value={product.name || ""}
                 onChange={(e) =>
                   setProduct({ ...product, name: e.target.value })
                 }
@@ -54,7 +66,7 @@ export default function UpdateProduct() {
                   <FormLabel>Description</FormLabel>
                   <Input
                     type="textarea"
-                    value={product.description}
+                    value={product.description || ""}
                     onChange={(e) =>
                       setProduct({ ...product, description: e.target.value })
                     }
@@ -69,7 +81,7 @@ export default function UpdateProduct() {
                     <Input
                       type="number"
                       min={0}
-                      value={product.quantityInStock}
+                      value={product.quantityInStock || 0}
                       onChange={(e) => {
                         setProduct({
                           ...product,
@@ -86,7 +98,7 @@ export default function UpdateProduct() {
                     <Input
                       type="number"
                       min={0}
-                      value={product.quantityTotal}
+                      value={product.quantityTotal || 0}
                       onChange={(e) => {
                         setProduct({
                           ...product,

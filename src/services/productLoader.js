@@ -1,8 +1,6 @@
 import axios from "axios";
 
-export const productDetailsLoader = async ({ params }) => {
-  const { id } = params;
-
+export const productDetailsLoader = async (id) => {
   try {
     // Récupérer le token
     const token = localStorage.getItem("token");

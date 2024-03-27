@@ -13,11 +13,25 @@ import {
   Tr,
 } from "@chakra-ui/react";
 
-import { useLoaderData, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
+import { productsLoader } from "../services/productsLoader";
+import { useState, useEffect } from "react";
 
 function Dashboard() {
-  const products = useLoaderData();
   const navigate = useNavigate();
+  const [products, setProducts] = useState([]);
+
+  useEffect(() => {
+    const fetchProducts = async () => {
+      try {
+        const data = await productsLoader();
+        setProducts(data);
+      } catch (error) {
+        console.error("Error fectching data", error);
+      }
+    };
+    fetchProducts();
+  }, []);
 
   return (
     <Box px="40px">
