@@ -16,16 +16,30 @@ import {
 
 import { MdDelete, MdEdit } from "react-icons/md";
 
-import { useLoaderData, useNavigate } from "react-router-dom";
-import { productDelete } from "../services/productLoader";
+import { useNavigate, useParams } from "react-router-dom";
+import { productDelete, productDetailsLoader } from "../services/productLoader";
 import { jwtDecode } from "jwt-decode";
+import { useEffect, useState } from "react";
 
 export default function ProductDetails() {
-  const product = useLoaderData();
+  const { id } = useParams();
+  const [product, setProduct] = useState([]);
   const navigate = useNavigate();
 
   const tokenDecoded = jwtDecode(localStorage.getItem("token"));
   const role = tokenDecoded.userData.role;
+
+  useEffect(() => {
+    const fecthProductData = async () => {
+      try {
+        const data = await productDetailsLoader(id);
+        setProduct(data);
+      } catch (error) {
+        console.error("Error fetching product data", error);
+      }
+    };
+    fecthProductData();
+  }, []);
 
   const handleDelete = async () => {
     productDelete({ product });
