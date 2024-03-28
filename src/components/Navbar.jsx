@@ -49,7 +49,9 @@ export default function Navbar() {
             bgColor={"blue.300"}
             color={"white"}
           />
-          <Text fontSize={"lg"}>{user.email}</Text>
+          <Text fontSize={"lg"} color={"white"}>
+            {user.email}
+          </Text>
         </HStack>
         <Spacer />
         <Button colorScheme="blue" onClick={logout}>
