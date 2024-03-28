@@ -2,6 +2,7 @@ import {
   Avatar,
   Box,
   Button,
+  Container,
   Flex,
   HStack,
   Spacer,
@@ -12,6 +13,7 @@ import { handleLogout } from "../services/logout";
 import { useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import { userLoader } from "../services/userLoader";
+import ColorModeSwitch from "./ColorModeSwitch";
 
 export default function Navbar() {
   const [user, setUser] = useState([]);
@@ -49,12 +51,17 @@ export default function Navbar() {
             bgColor={"blue.300"}
             color={"white"}
           />
-          <Text fontSize={"lg"}>{user.email}</Text>
+          <Text fontSize={"lg"} color={"white"}>
+            {user.email}
+          </Text>
         </HStack>
         <Spacer />
-        <Button colorScheme="blue" onClick={logout}>
-          Déconnexion
-        </Button>
+        <HStack gap={6}>
+          <ColorModeSwitch />
+          <Button colorScheme="blue" onClick={logout}>
+            Déconnexion
+          </Button>
+        </HStack>
       </Flex>
     </Box>
   );

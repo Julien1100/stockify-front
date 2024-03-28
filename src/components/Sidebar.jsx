@@ -13,7 +13,7 @@ import { NavLink } from "react-router-dom";
 export default function Sidebar() {
   return (
     <Box>
-      <Heading as="h3" pb="20px" textAlign="center">
+      <Heading as="h3" pb="20px" textAlign="center" color={"white"}>
         stockify
       </Heading>
       <Divider borderColor={"cyan.50"} borderWidth={1.5} opacity="1" />
