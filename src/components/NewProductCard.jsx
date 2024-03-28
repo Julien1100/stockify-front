@@ -83,7 +83,13 @@ export default function NewProductCard() {
     } catch (error) {
       // Gérer les erreurs de la requête
       console.error("Erreur lors de l'ajout du produit :", error);
-      alert("Une erreur est survenue lors de l'ajout du produit.");
+      toast({
+        title: "Erreur lors de l'ajout du produit.",
+        status: "error",
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+      });
     }
   };
 
