@@ -13,6 +13,7 @@ import {
   Select,
   Stack,
   StackDivider,
+  useToast,
 } from "@chakra-ui/react";
 
 import axios from "axios";
@@ -21,6 +22,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
 export default function NewProductCard() {
+  const toast = useToast();
   const [formData, setFormData] = useState({
     name: "",
     description: "",
@@ -70,7 +72,14 @@ export default function NewProductCard() {
 
       // Vérifier la réponse et afficher un message en conséquence
       navigate("/");
-      alert("Produit ajouté avec succès !");
+      toast({
+        title: "Produit créé.",
+        description: `Le produit \"${formData.name}\" a été ajouté avec succès.`,
+        status: "success",
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+      });
     } catch (error) {
       // Gérer les erreurs de la requête
       console.error("Erreur lors de l'ajout du produit :", error);
