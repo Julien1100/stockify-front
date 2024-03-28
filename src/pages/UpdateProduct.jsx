@@ -14,6 +14,7 @@ import {
   Select,
   Stack,
   StackDivider,
+  useToast,
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { useNavigate, useParams } from "react-router-dom";
@@ -23,6 +24,7 @@ export default function UpdateProduct() {
   const navigate = useNavigate();
   const { id } = useParams();
   const [product, setProduct] = useState({});
+  const toast = useToast();
 
   useEffect(() => {
     const fecthProductData = async () => {
@@ -40,6 +42,13 @@ export default function UpdateProduct() {
     e.preventDefault();
     productUpdate({ product }, id);
     navigate("/");
+    toast({
+      title: "Produit modifié avec succès.",
+      status: "success",
+      position: "top",
+      duration: 3000,
+      isClosable: true,
+    });
   };
 
   return (
