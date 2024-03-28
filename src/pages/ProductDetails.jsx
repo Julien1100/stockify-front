@@ -12,6 +12,7 @@ import {
   Stack,
   StackDivider,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 
 import { MdDelete, MdEdit } from "react-icons/md";
@@ -25,6 +26,8 @@ export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const navigate = useNavigate();
+
+  const toast = useToast();
 
   const tokenDecoded = jwtDecode(localStorage.getItem("token"));
   const role = tokenDecoded.userData.role;
@@ -44,6 +47,14 @@ export default function ProductDetails() {
   const handleDelete = async () => {
     productDelete({ product });
     navigate("/");
+
+    toast({
+      title: "Produit supprimé avec succès.",
+      status: "success",
+      position: "top",
+      duration: 3000,
+      isClosable: true,
+    });
   };
 
   const handleUpdate = async () => {

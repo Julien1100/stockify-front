@@ -50,8 +50,6 @@ export const productDelete = async ({ product }) => {
       `${import.meta.env.VITE_API_URL}/products/${product._id}`,
       config
     );
-
-    alert("Product deleted");
   } catch (error) {
     console.error("Error deleting product: ", error);
     throw error;

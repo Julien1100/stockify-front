@@ -18,6 +18,7 @@ import {
   InputRightElement,
   ButtonGroup,
   Box,
+  useToast,
 } from "@chakra-ui/react";
 import { registerAction } from "../services/registerAction";
 
@@ -31,6 +32,7 @@ export default function Register() {
     email: "",
     password: "",
   });
+  const toast = useToast();
 
   const navigate = useNavigate();
 
@@ -55,6 +57,13 @@ export default function Register() {
         setError(response.error);
       } else {
         console.log("Registration successful!");
+        toast({
+          title: "Utilisateur créé avec succès !",
+          status: "success",
+          position: "top",
+          duration: 3000,
+          isClosable: true,
+        });
         navigate("/login");
       }
     } catch (error) {
@@ -126,7 +135,7 @@ export default function Register() {
                   isRequired
                 />
                 {error && (
-                  <FormHelperText mb={4} color={"red"}>
+                  <FormHelperText mb={4} color={"red.500"}>
                     {error}
                   </FormHelperText>
                 )}
