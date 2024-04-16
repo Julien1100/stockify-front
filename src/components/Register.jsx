@@ -110,20 +110,6 @@ export default function Register() {
                   </Box>
                 </Flex>
 
-                <FormLabel>Rôle</FormLabel>
-                <Select
-                  name="role"
-                  value={formData.role}
-                  onChange={handleChange}
-                  mb={4}
-                  placeholder="Choisissez votre rôle…"
-                  isRequired
-                >
-                  <option value={"user"}>Utilisateur</option>
-                  <option value={"moderator"}>Modérateur</option>
-                  <option value={"admin"}>Administrateur</option>
-                </Select>
-
                 <FormLabel>Adresse mail</FormLabel>
                 <Input
                   type="email"
