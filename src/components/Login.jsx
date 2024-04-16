@@ -12,11 +12,13 @@ import {
   FormControl,
   FormLabel,
   Heading,
+  Image,
   Input,
   InputGroup,
   InputRightElement,
 } from "@chakra-ui/react";
 import { NavLink, useNavigate } from "react-router-dom";
+import logo from "../../public/logo.png";
 
 export default function Login() {
   const [show, setShow] = useState(false);
@@ -55,63 +57,68 @@ export default function Login() {
   };
 
   return (
-    <Center h={"100vh"}>
-      <Container>
-        <Card>
-          <CardHeader>
-            <Heading>Login</Heading>
-          </CardHeader>
+    <>
+      <Container mb={6}>
+        <Image src={logo} alt="Logo de Stockify" />
+      </Container>
+      <Center>
+        <Container>
+          <Card>
+            <CardHeader>
+              <Heading>Login</Heading>
+            </CardHeader>
 
-          <CardBody>
-            <form onSubmit={handleLogin}>
-              <FormControl>
-                <FormLabel>Adresse mail</FormLabel>
-                <Input
-                  value={email}
-                  onChange={handleEmail}
-                  type="email"
-                  placeholder="Entrez votre adresse mail…"
-                  mb={4}
-                  isRequired
-                />
-
-                <FormLabel>Mot de passe</FormLabel>
-                <InputGroup mb={4}>
+            <CardBody>
+              <form onSubmit={handleLogin}>
+                <FormControl>
+                  <FormLabel>Adresse mail</FormLabel>
                   <Input
-                    value={password}
-                    onChange={handlePassword}
-                    pr={"4.5rem"}
-                    type={show ? "text" : "password"}
-                    placeholder="Entrez votre mot de passe…"
+                    value={email}
+                    onChange={handleEmail}
+                    type="email"
+                    placeholder="Entrez votre adresse mail…"
+                    mb={4}
                     isRequired
                   />
-                  <InputRightElement w={"4.5rem"}>
-                    <Button
-                      colorScheme="blue"
-                      h={"1.75rem"}
-                      size="sm"
-                      onClick={handleClick}
-                    >
-                      {show ? "Hide" : "Show"}
-                    </Button>
-                  </InputRightElement>
-                </InputGroup>
 
-                <ButtonGroup gap={4}>
-                  <Button colorScheme="blue" type="submit">
-                    Connexion
-                  </Button>
-                  <NavLink to="/register">
-                    <Button variant={"ghost"} colorScheme="blue">
-                      Créer un compte
+                  <FormLabel>Mot de passe</FormLabel>
+                  <InputGroup mb={4}>
+                    <Input
+                      value={password}
+                      onChange={handlePassword}
+                      pr={"4.5rem"}
+                      type={show ? "text" : "password"}
+                      placeholder="Entrez votre mot de passe…"
+                      isRequired
+                    />
+                    <InputRightElement w={"4.5rem"}>
+                      <Button
+                        colorScheme="blue"
+                        h={"1.75rem"}
+                        size="sm"
+                        onClick={handleClick}
+                      >
+                        {show ? "Hide" : "Show"}
+                      </Button>
+                    </InputRightElement>
+                  </InputGroup>
+
+                  <ButtonGroup gap={4}>
+                    <Button colorScheme="blue" type="submit">
+                      Connexion
                     </Button>
-                  </NavLink>
-                </ButtonGroup>
-              </FormControl>
-            </form>
-          </CardBody>
-        </Card>
-      </Container>
-    </Center>
+                    <NavLink to="/register">
+                      <Button variant={"ghost"} colorScheme="blue">
+                        Créer un compte
+                      </Button>
+                    </NavLink>
+                  </ButtonGroup>
+                </FormControl>
+              </form>
+            </CardBody>
+          </Card>
+        </Container>
+      </Center>
+    </>
   );
 }
