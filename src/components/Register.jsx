@@ -119,9 +119,11 @@ export default function Register() {
                   onChange={handleChange}
                   mb={error ? 0 : 4}
                   isRequired
+                  isInvalid={error}
+                  errorBorderColor="red.400"
                 />
                 {error && (
-                  <FormHelperText mb={4} color={"red.500"}>
+                  <FormHelperText mb={4} color={"red.400"}>
                     {error}
                   </FormHelperText>
                 )}
