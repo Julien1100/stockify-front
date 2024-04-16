@@ -28,7 +28,14 @@ export const userLoader = async () => {
     );
 
     // Renvoie des données
-    return response.data;
+    const data = {
+      email: response.data.email,
+      firstName: response.data.firstName,
+      lastName: response.data.lastName,
+      role: response.data.role,
+    };
+
+    return data;
   } catch (error) {
     console.error("Error fecthing products data:", error.message);
     throw error;
