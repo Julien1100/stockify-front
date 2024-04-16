@@ -168,7 +168,7 @@ export default function Register() {
                   <Button type="submit">Enregistrer</Button>
 
                   <Button variant={"ghost"}>
-                    <Link to="/login">Déjà un compte ? Se connecter</Link>
+                    <Link to="/login">Se connecter</Link>
                   </Button>
                 </ButtonGroup>
               </FormControl>
