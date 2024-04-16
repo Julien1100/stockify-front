@@ -11,6 +11,7 @@ import Profile from "./pages/Profile";
 import ProductDetails from "./pages/ProductDetails";
 import NewProduct from "./pages/NewProduct";
 import UpdateProduct from "./pages/UpdateProduct";
+import UpdateProfile from "./pages/UpdateProfile";
 
 function App() {
   return (
@@ -26,6 +27,7 @@ function App() {
             <Route path=":id/edit" element={<UpdateProduct />} />
           </Route>
           <Route path="/profile" element={<Profile />} />
+          <Route path="/profile/edit" element={<UpdateProfile />} />
         </Route>
       </Routes>
     </Router>
