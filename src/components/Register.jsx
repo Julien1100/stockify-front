@@ -23,6 +23,8 @@ import {
 } from "@chakra-ui/react";
 import { registerAction } from "../services/registerAction";
 
+import logo from "../../public/logo.png";
+
 export default function Register() {
   const [show, setShow] = useState(false);
   const [error, setError] = useState("");
@@ -75,7 +77,7 @@ export default function Register() {
   return (
     <>
       <Container mb={6}>
-        <Image src="../../public/logo.png" alt="Logo de Stockify" />
+        <Image src={logo} alt="Logo de Stockify" />
       </Container>
       <Center>
         <Container>
