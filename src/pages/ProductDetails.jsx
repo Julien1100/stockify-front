@@ -12,6 +12,7 @@ import {
   Stack,
   StackDivider,
   Text,
+  useDisclosure,
   useToast,
 } from "@chakra-ui/react";
 
@@ -21,11 +22,13 @@ import { useNavigate, useParams } from "react-router-dom";
 import { productDelete, productDetailsLoader } from "../services/productLoader";
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
+import DeleteAlert from "../components/DeleteAlert";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
 
   const toast = useToast();
 
@@ -44,8 +47,17 @@ export default function ProductDetails() {
     fecthProductData();
   }, []);
 
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   const handleDelete = async () => {
     productDelete({ product });
+    handleClose();
     navigate("/");
 
     toast({
@@ -164,15 +176,22 @@ export default function ProductDetails() {
             Modifier
           </Button>
           {role !== "user" && (
-            <Button
-              flex={"1"}
-              variant={"ghost"}
-              colorScheme="red"
-              leftIcon={<MdDelete />}
-              onClick={handleDelete}
-            >
-              Supprimer
-            </Button>
+            <>
+              <Button
+                flex={"1"}
+                variant={"ghost"}
+                colorScheme="red"
+                leftIcon={<MdDelete />}
+                onClick={handleOpen}
+              >
+                Supprimer
+              </Button>
+              <DeleteAlert
+                isOpen={isOpen}
+                onClose={handleClose}
+                onDelete={handleDelete}
+              />
+            </>
           )}
         </CardFooter>
       </Card>
