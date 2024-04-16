@@ -188,10 +188,11 @@ export default function UpdateProduct() {
             </Stack>
           </CardBody>
 
-          <CardFooter justifyContent={"center"}>
+          <CardFooter justifyContent={"center"} gap={4}>
             <Button type="submit" colorScheme="blue">
               Enregistrer
             </Button>
+            <Button onClick={() => navigate(-1)}>Annuler</Button>
           </CardFooter>
         </Card>
       </form>
