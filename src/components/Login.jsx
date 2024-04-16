@@ -16,12 +16,14 @@ import {
   Input,
   InputGroup,
   InputRightElement,
+  useToast,
 } from "@chakra-ui/react";
 import { NavLink, useNavigate } from "react-router-dom";
 import logo from "../../public/logo.png";
 
 export default function Login() {
   const [show, setShow] = useState(false);
+
   const handleClick = () => {
     setShow(!show);
   };
@@ -33,6 +35,7 @@ export default function Login() {
   const handlePassword = (event) => setPassword(event.target.value);
 
   const navigate = useNavigate();
+  const toast = useToast();
 
   const handleLogin = async (event) => {
     // Login request
@@ -52,7 +55,13 @@ export default function Login() {
         }
       })
       .catch((error) => {
-        console.log(error);
+        toast({
+          title: `${error.response.data.message}.`,
+          status: "error",
+          position: "top",
+          duration: 3000,
+          isClosable: true,
+        });
       });
   };
 
