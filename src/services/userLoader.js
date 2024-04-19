@@ -42,10 +42,11 @@ export const userLoader = async () => {
   }
 };
 
-export const userUpdate = async ({ user }) => {
+export const passwordUpdate = async (password) => {
   try {
     // Récupérer le token depuis le localStorage
     const token = localStorage.getItem("token");
+    const id = localStorage.getItem("userId");
 
     if (!token) {
       throw new Error("Token not found");
@@ -55,13 +56,14 @@ export const userUpdate = async ({ user }) => {
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
+        "Access-Control-Allow-Origin": "*",
       },
     };
 
-    // Effectuer la requête PATCH avec Axios pour mettre à jour le produit
+    // Effectuer la requête PUT avec Axios pour mettre à jour le mot de passe
     const response = await axios.put(
-      `${import.meta.env.VITE_API_URL}/user/update/${user._id}`,
-      user,
+      `${import.meta.env.VITE_API_URL}/user/update/password/${id}`,
+      { password: password },
       config
     );
 
@@ -69,11 +71,11 @@ export const userUpdate = async ({ user }) => {
     if (response.data) {
       return response.data;
     } else {
-      throw new Error("Failed to update user");
+      throw new Error("Failed to update password");
     }
   } catch (error) {
     // Gérer les erreurs
-    console.error("Error updating user:", error);
+    console.error("Error updating password:", error);
     throw error;
   }
 };
