@@ -1,8 +1,10 @@
 import {
   Avatar,
   Box,
+  Button,
   Card,
   CardBody,
+  CardFooter,
   CardHeader,
   Container,
   Flex,
@@ -11,9 +13,12 @@ import {
 } from "@chakra-ui/react";
 import { useEffect, useState } from "react";
 import { userLoader } from "../services/userLoader";
+import { MdEdit } from "react-icons/md";
+import { useNavigate } from "react-router-dom";
 
 export default function Profile() {
   const [user, setUser] = useState([]);
+  const navigate = useNavigate();
 
   useEffect(() => {
     const fetchUserData = async () => {
@@ -26,6 +31,10 @@ export default function Profile() {
     };
     fetchUserData();
   }, []);
+
+  const handleUpdate = async () => {
+    navigate("edit/password");
+  };
 
   return (
     <Container>
@@ -55,6 +64,18 @@ export default function Profile() {
           <Heading size={"sm"}>Mot de passe</Heading>
           <Text>*********</Text>
         </CardBody>
+
+        <CardFooter justify={"center"}>
+          <Button
+            flex={"1"}
+            variant={"ghost"}
+            colorScheme="blue"
+            leftIcon={<MdEdit />}
+            onClick={handleUpdate}
+          >
+            Modifier le mot de passe
+          </Button>
+        </CardFooter>
       </Card>
     </Container>
   );
