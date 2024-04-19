@@ -17,6 +17,7 @@ import {
   InputGroup,
   InputRightElement,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 import { useNavigate } from "react-router-dom";
 
@@ -30,6 +31,7 @@ export default function UpdatePassword() {
   const [showPasswordConfirm, setShowPasswordConfirm] = useState(false);
 
   const navigate = useNavigate();
+  const toast = useToast();
 
   const roleMap = {
     user: "Utilisateur",
@@ -53,10 +55,22 @@ export default function UpdatePassword() {
     e.preventDefault();
     if (password.password === password.confirmedPassword) {
       passwordUpdate(password);
-      alert("C'est ok");
+      toast({
+        title: "Mot de passe modifié avec succès.",
+        status: "success",
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+      });
       navigate(-1);
     } else {
-      alert("Vérifiez votre mot de passe");
+      toast({
+        title: "Vérifiez votre mot de passe.",
+        status: "warning",
+        position: "top",
+        duration: 3000,
+        isClosable: true,
+      });
     }
   };
 
