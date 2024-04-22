@@ -95,8 +95,8 @@ export default function NewProductCard() {
 
   return (
     <form onSubmit={handleSubmit}>
-      <Card my={10}>
-        <CardHeader>
+      <Card my={{ base: 4, md: 10 }} variant={"filled"}>
+        <CardHeader pb={{ base: 0, md: 5 }}>
           <FormControl isRequired>
             <FormLabel>Nom du produit</FormLabel>
             <Input
@@ -105,14 +105,16 @@ export default function NewProductCard() {
               name="name"
               value={formData.name}
               onChange={handleChange}
+              shadow={"inner"}
+              background={"gray.200"}
             />
           </FormControl>
         </CardHeader>
 
         <CardBody>
-          <Stack divider={<StackDivider />} spacing={4}>
+          <Stack divider={<StackDivider />} spacing={{ base: 3, md: 4 }}>
             <Box>
-              <FormControl pt={2}>
+              <FormControl>
                 <FormLabel>Description</FormLabel>
                 <Input
                   type="textarea"
@@ -120,6 +122,8 @@ export default function NewProductCard() {
                   name="description"
                   value={formData.description}
                   onChange={handleChange}
+                  shadow={"inner"}
+                  background={"gray.200"}
                 />
               </FormControl>
             </Box>
@@ -127,61 +131,74 @@ export default function NewProductCard() {
             <HStack justifyContent={"space-between"}>
               <Box>
                 <FormControl isRequired>
-                  <FormLabel>Quantité en stock</FormLabel>
+                  <FormLabel textAlign={"center"}>Quantité en stock</FormLabel>
                   <Input
                     type="number"
                     min={0}
                     name="quantityInStock"
                     value={formData.quantityInStock}
                     onChange={handleChange}
+                    shadow={"inner"}
+                    background={"gray.200"}
                   />
                 </FormControl>
               </Box>
 
               <Box>
                 <FormControl>
-                  <FormLabel>Quantité totale</FormLabel>
+                  <FormLabel textAlign={"center"}>Quantité totale</FormLabel>
                   <Input
                     type="number"
                     min={0}
                     name="quantityTotal"
                     value={formData.quantityTotal}
                     onChange={handleChange}
+                    shadow={"inner"}
+                    background={"gray.200"}
                   />
                 </FormControl>
               </Box>
             </HStack>
 
-            <HStack justifyContent={"space-between"}>
+            <HStack justifyContent={"space-between"} flexWrap={"wrap"}>
               <Box>
-                <FormControl>
-                  <FormLabel>Batteries ?</FormLabel>
+                <FormControl textAlign={"center"}>
+                  <FormLabel mx={0}>Batteries ?</FormLabel>
                   <Checkbox
                     name="needBattery"
                     isChecked={formData.needBattery}
                     onChange={handleChange}
+                    shadow={"inner"}
+                    background={"gray.200"}
+                    border={"transparent"}
                   />
                 </FormControl>
               </Box>
 
               <Box>
-                <FormControl>
-                  <FormLabel>Congelé ?</FormLabel>
+                <FormControl textAlign={"center"}>
+                  <FormLabel mx={0}>Congelé ?</FormLabel>
                   <Checkbox
                     name="frozen"
                     isChecked={formData.frozen}
                     onChange={handleChange}
+                    shadow={"inner"}
+                    background={"gray.200"}
+                    border={"transparent"}
                   />
                 </FormControl>
               </Box>
 
               <Box>
-                <FormControl>
-                  <FormLabel>Date d'expiration ?</FormLabel>
+                <FormControl textAlign={"center"}>
+                  <FormLabel mx={0}>Date d'expiration ?</FormLabel>
                   <Checkbox
                     name="hasExpirationDate"
                     isChecked={formData.hasExpirationDate}
                     onChange={handleChange}
+                    shadow={"inner"}
+                    background={"gray.200"}
+                    border={"transparent"}
                   />
                 </FormControl>
               </Box>
@@ -195,6 +212,8 @@ export default function NewProductCard() {
                   name="location"
                   value={formData.location}
                   onChange={handleChange}
+                  shadow={"inner"}
+                  background={"gray.200"}
                 >
                   <option value={"none"}>N/A</option>
                   <option value={"shelf"}>Étagère</option>
@@ -205,10 +224,11 @@ export default function NewProductCard() {
           </Stack>
         </CardBody>
 
-        <CardFooter justifyContent={"center"}>
+        <CardFooter justifyContent={"center"} gap={4}>
           <Button type="submit" colorScheme="blue">
             Enregistrer
           </Button>
+          <Button onClick={() => navigate(-1)}>Annuler</Button>
         </CardFooter>
       </Card>
     </form>
