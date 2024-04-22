@@ -16,7 +16,6 @@ export const registerAction = async (formData) => {
       submission
     );
     if (response.status === 201) {
-      // Ajouter une alerte
       return redirect("/login");
     }
   } catch (error) {

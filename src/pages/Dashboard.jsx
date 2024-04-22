@@ -34,10 +34,17 @@ function Dashboard() {
   }, []);
 
   return (
-    <Box px="40px">
-      <Flex alignItems={"center"} justifyContent={"space-between"}>
-        <Heading py={5}>Dashboard</Heading>
-        <Button onClick={() => navigate("products/new")}>
+    <Box px={{ base: 2, lg: 5 }}>
+      <Flex
+        alignItems={"center"}
+        justifyContent={"space-between"}
+        py={{ base: 2, lg: 5 }}
+      >
+        <Heading size={{ base: "lg", md: "xl" }}>Dashboard</Heading>
+        <Button
+          onClick={() => navigate("products/new")}
+          size={{ base: "sm", md: "lg" }}
+        >
           Nouveau produit
         </Button>
       </Flex>

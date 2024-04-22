@@ -12,6 +12,7 @@ import {
   Stack,
   StackDivider,
   Text,
+  useToast,
 } from "@chakra-ui/react";
 
 import { MdDelete, MdEdit } from "react-icons/md";
@@ -20,11 +21,15 @@ import { useNavigate, useParams } from "react-router-dom";
 import { productDelete, productDetailsLoader } from "../services/productLoader";
 import { jwtDecode } from "jwt-decode";
 import { useEffect, useState } from "react";
+import DeleteAlert from "../components/DeleteAlert";
 
 export default function ProductDetails() {
   const { id } = useParams();
   const [product, setProduct] = useState([]);
   const navigate = useNavigate();
+  const [isOpen, setIsOpen] = useState(false);
+
+  const toast = useToast();
 
   const tokenDecoded = jwtDecode(localStorage.getItem("token"));
   const role = tokenDecoded.userData.role;
@@ -41,9 +46,26 @@ export default function ProductDetails() {
     fecthProductData();
   }, []);
 
+  const handleOpen = () => {
+    setIsOpen(true);
+  };
+
+  const handleClose = () => {
+    setIsOpen(false);
+  };
+
   const handleDelete = async () => {
     productDelete({ product });
+    handleClose();
     navigate("/");
+
+    toast({
+      title: "Produit supprimé avec succès.",
+      status: "success",
+      position: "top",
+      duration: 3000,
+      isClosable: true,
+    });
   };
 
   const handleUpdate = async () => {
@@ -52,9 +74,9 @@ export default function ProductDetails() {
 
   return (
     <Container>
-      <Card my={10}>
+      <Card my={{ base: 4, md: 10 }} variant={"filled"}>
         <CardHeader>
-          <Heading size={"lg"} textTransform={"capitalize"}>
+          <Heading size={{ base: "md", md: "lg" }} textTransform={"capitalize"}>
             {product.name}
           </Heading>
         </CardHeader>
@@ -72,7 +94,11 @@ export default function ProductDetails() {
 
             <HStack justifyContent={"space-between"}>
               <Box>
-                <Heading size={"xs"} textTransform={"uppercase"}>
+                <Heading
+                  size={"xs"}
+                  textTransform={"uppercase"}
+                  textAlign={"center"}
+                >
                   Quantité en stock
                 </Heading>
                 <Text pt={2} fontSize={"sm"} textAlign={"center"}>
@@ -81,7 +107,11 @@ export default function ProductDetails() {
               </Box>
 
               <Box>
-                <Heading size={"xs"} textTransform={"uppercase"}>
+                <Heading
+                  size={"xs"}
+                  textTransform={"uppercase"}
+                  textAlign={"center"}
+                >
                   Quantité totale
                 </Heading>
                 <Text pt={2} fontSize={"sm"} textAlign={"center"}>
@@ -90,9 +120,13 @@ export default function ProductDetails() {
               </Box>
             </HStack>
 
-            <HStack justifyContent={"space-between"}>
+            <HStack justifyContent={"space-between"} flexWrap={"wrap"} gap={4}>
               <Box>
-                <Heading size={"xs"} textTransform={"uppercase"}>
+                <Heading
+                  size={"xs"}
+                  textTransform={"uppercase"}
+                  textAlign={"center"}
+                >
                   Batteries ?
                 </Heading>
                 <Text pt={2} fontSize={"sm"} textAlign={"center"}>
@@ -142,7 +176,7 @@ export default function ProductDetails() {
           </Stack>
         </CardBody>
 
-        <CardFooter justify={"space-between"} flexWrap={"wrap"}>
+        <CardFooter justify={"space-between"} flexWrap={"wrap"} pt={0}>
           <Button
             flex={"1"}
             variant={"ghost"}
@@ -153,15 +187,22 @@ export default function ProductDetails() {
             Modifier
           </Button>
           {role !== "user" && (
-            <Button
-              flex={"1"}
-              variant={"ghost"}
-              colorScheme="red"
-              leftIcon={<MdDelete />}
-              onClick={handleDelete}
-            >
-              Supprimer
-            </Button>
+            <>
+              <Button
+                flex={"1"}
+                variant={"ghost"}
+                colorScheme="red"
+                leftIcon={<MdDelete />}
+                onClick={handleOpen}
+              >
+                Supprimer
+              </Button>
+              <DeleteAlert
+                isOpen={isOpen}
+                onClose={handleClose}
+                onDelete={handleDelete}
+              />
+            </>
           )}
         </CardFooter>
       </Card>
