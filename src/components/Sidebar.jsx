@@ -7,6 +7,7 @@ import {
   List,
   ListIcon,
   ListItem,
+  Show,
 } from "@chakra-ui/react";
 import { NavLink } from "react-router-dom";
 
@@ -34,7 +35,7 @@ export default function Sidebar() {
         <ListItem>
           <NavLink to="/">
             <Button colorScheme="blue" size={"lg"}>
-              <Hide below="md">
+              <Hide below="sm">
                 <ListIcon as={DragHandleIcon} />
               </Hide>
               Dashboard
@@ -45,7 +46,7 @@ export default function Sidebar() {
         <ListItem>
           <NavLink to="profile">
             <Button colorScheme="blue" size={"lg"}>
-              <Hide below="md">
+              <Hide below="sm">
                 <ListIcon as={AtSignIcon} />
               </Hide>
               Profile
