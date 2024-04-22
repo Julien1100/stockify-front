@@ -2,9 +2,9 @@ import {
   Avatar,
   Box,
   Button,
-  Container,
   Flex,
   HStack,
+  Show,
   Spacer,
   Text,
 } from "@chakra-ui/react";
@@ -42,8 +42,9 @@ export default function Navbar() {
         as={"nav"}
         justifyContent="space-between"
         alignItems={"center"}
-        px={"40px"}
-        py={"20px"}
+        px={{ base: "20px", md: "40px" }}
+        py={{ base: "10px", md: "20px" }}
+        pt={{ base: "0", md: "20px" }}
       >
         <HStack spacing={2}>
           <Avatar
@@ -52,7 +53,7 @@ export default function Navbar() {
             color={"white"}
           />
           <Text fontSize={"lg"} color={"white"}>
-            {user.email}
+            <Show above="md">{user.email}</Show>
           </Text>
         </HStack>
         <Spacer />
