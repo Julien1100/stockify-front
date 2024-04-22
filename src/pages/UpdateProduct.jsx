@@ -65,7 +65,7 @@ export default function UpdateProduct() {
                   setProduct({ ...product, name: e.target.value })
                 }
                 shadow={"inner"}
-                background={"gray.200"}
+                background={"blackAlpha.100"}
               />
             </FormControl>
           </CardHeader>
@@ -82,7 +82,7 @@ export default function UpdateProduct() {
                       setProduct({ ...product, description: e.target.value })
                     }
                     shadow={"inner"}
-                    background={"gray.200"}
+                    background={"blackAlpha.100"}
                   />
                 </FormControl>
               </Box>
@@ -104,7 +104,7 @@ export default function UpdateProduct() {
                         });
                       }}
                       shadow={"inner"}
-                      background={"gray.200"}
+                      background={"blackAlpha.100"}
                     />
                   </FormControl>
                 </Box>
@@ -123,7 +123,7 @@ export default function UpdateProduct() {
                         });
                       }}
                       shadow={"inner"}
-                      background={"gray.200"}
+                      background={"blackAlpha.100"}
                     />
                   </FormControl>
                 </Box>
@@ -144,8 +144,9 @@ export default function UpdateProduct() {
                         });
                       }}
                       shadow={"inner"}
-                      background={"gray.200"}
-                      border={"transparent"}
+                      background={"blackAlpha.100"}
+                      borderColor={"blackAlpha.100"}
+                      size={"lg"}
                     />
                   </FormControl>
                 </Box>
@@ -161,8 +162,9 @@ export default function UpdateProduct() {
                         setProduct({ ...product, frozen: e.target.checked });
                       }}
                       shadow={"inner"}
-                      background={"gray.200"}
-                      border={"transparent"}
+                      background={"blackAlpha.100"}
+                      borderColor={"blackAlpha.100"}
+                      size={"lg"}
                     />
                   </FormControl>
                 </Box>
@@ -181,8 +183,9 @@ export default function UpdateProduct() {
                         });
                       }}
                       shadow={"inner"}
-                      background={"gray.200"}
-                      border={"transparent"}
+                      background={"blackAlpha.100"}
+                      borderColor={"blackAlpha.100"}
+                      size={"lg"}
                     />
                   </FormControl>
                 </Box>
@@ -198,7 +201,7 @@ export default function UpdateProduct() {
                       setProduct({ ...product, location: e.target.value });
                     }}
                     shadow={"inner"}
-                    background={"gray.200"}
+                    background={"blackAlpha.100"}
                   >
                     <option value={"none"}>N/A</option>
                     <option value={"shelf"}>Étagère</option>

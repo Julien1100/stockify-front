@@ -106,7 +106,7 @@ export default function NewProductCard() {
               value={formData.name}
               onChange={handleChange}
               shadow={"inner"}
-              background={"gray.200"}
+              background={"blackAlpha.100"}
             />
           </FormControl>
         </CardHeader>
@@ -123,7 +123,7 @@ export default function NewProductCard() {
                   value={formData.description}
                   onChange={handleChange}
                   shadow={"inner"}
-                  background={"gray.200"}
+                  background={"blackAlpha.100"}
                 />
               </FormControl>
             </Box>
@@ -139,7 +139,7 @@ export default function NewProductCard() {
                     value={formData.quantityInStock}
                     onChange={handleChange}
                     shadow={"inner"}
-                    background={"gray.200"}
+                    background={"blackAlpha.100"}
                   />
                 </FormControl>
               </Box>
@@ -154,7 +154,7 @@ export default function NewProductCard() {
                     value={formData.quantityTotal}
                     onChange={handleChange}
                     shadow={"inner"}
-                    background={"gray.200"}
+                    background={"blackAlpha.100"}
                   />
                 </FormControl>
               </Box>
@@ -169,8 +169,9 @@ export default function NewProductCard() {
                     isChecked={formData.needBattery}
                     onChange={handleChange}
                     shadow={"inner"}
-                    background={"gray.200"}
-                    border={"transparent"}
+                    background={"blackAlpha.100"}
+                    borderColor={"blackAlpha.100"}
+                    size={"lg"}
                   />
                 </FormControl>
               </Box>
@@ -183,8 +184,9 @@ export default function NewProductCard() {
                     isChecked={formData.frozen}
                     onChange={handleChange}
                     shadow={"inner"}
-                    background={"gray.200"}
-                    border={"transparent"}
+                    background={"blackAlpha.100"}
+                    borderColor={"blackAlpha.100"}
+                    size={"lg"}
                   />
                 </FormControl>
               </Box>
@@ -197,8 +199,9 @@ export default function NewProductCard() {
                     isChecked={formData.hasExpirationDate}
                     onChange={handleChange}
                     shadow={"inner"}
-                    background={"gray.200"}
-                    border={"transparent"}
+                    background={"blackAlpha.100"}
+                    borderColor={"blackAlpha.100"}
+                    size={"lg"}
                   />
                 </FormControl>
               </Box>
@@ -213,7 +216,7 @@ export default function NewProductCard() {
                   value={formData.location}
                   onChange={handleChange}
                   shadow={"inner"}
-                  background={"gray.200"}
+                  background={"blackAlpha.100"}
                 >
                   <option value={"none"}>N/A</option>
                   <option value={"shelf"}>Étagère</option>
