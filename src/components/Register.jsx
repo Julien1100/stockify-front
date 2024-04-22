@@ -76,20 +76,21 @@ export default function Register() {
 
   return (
     <>
-      <Container mb={6}>
+      <Container my={[5, 10]} mb={{ base: 6 }}>
         <Image src={logo} alt="Logo de Stockify" />
       </Container>
-      <Center>
+
+      <Center mb={5}>
         <Container>
           <Card>
-            <CardHeader>
+            <CardHeader pb={3}>
               <Heading>Créer un compte</Heading>
             </CardHeader>
 
             <CardBody>
               <form onSubmit={handleSubmit}>
                 <FormControl>
-                  <Flex justifyContent={"space-between"}>
+                  <Flex justifyContent={"space-between"} gap={4}>
                     <Box>
                       <FormLabel>Prénom</FormLabel>
                       <Input
@@ -159,10 +160,15 @@ export default function Register() {
                     </InputRightElement>
                   </InputGroup>
 
-                  <ButtonGroup gap={4} colorScheme="blue">
+                  <ButtonGroup
+                    colorScheme="blue"
+                    gap={2}
+                    flexWrap={"wrap"}
+                    justifyContent={"center"}
+                  >
                     <Button type="submit">Enregistrer</Button>
 
-                    <Button variant={"ghost"}>
+                    <Button variant={"ghost"} mr={2}>
                       <Link to="/login">Se connecter</Link>
                     </Button>
                   </ButtonGroup>
