@@ -12,7 +12,6 @@ import {
   Stack,
   StackDivider,
   Text,
-  useDisclosure,
   useToast,
 } from "@chakra-ui/react";
 
@@ -75,9 +74,9 @@ export default function ProductDetails() {
 
   return (
     <Container>
-      <Card my={10}>
+      <Card my={{ base: 4, md: 10 }} variant={"filled"}>
         <CardHeader>
-          <Heading size={"lg"} textTransform={"capitalize"}>
+          <Heading size={{ base: "md", md: "lg" }} textTransform={"capitalize"}>
             {product.name}
           </Heading>
         </CardHeader>
@@ -95,7 +94,11 @@ export default function ProductDetails() {
 
             <HStack justifyContent={"space-between"}>
               <Box>
-                <Heading size={"xs"} textTransform={"uppercase"}>
+                <Heading
+                  size={"xs"}
+                  textTransform={"uppercase"}
+                  textAlign={"center"}
+                >
                   Quantité en stock
                 </Heading>
                 <Text pt={2} fontSize={"sm"} textAlign={"center"}>
@@ -104,7 +107,11 @@ export default function ProductDetails() {
               </Box>
 
               <Box>
-                <Heading size={"xs"} textTransform={"uppercase"}>
+                <Heading
+                  size={"xs"}
+                  textTransform={"uppercase"}
+                  textAlign={"center"}
+                >
                   Quantité totale
                 </Heading>
                 <Text pt={2} fontSize={"sm"} textAlign={"center"}>
@@ -113,9 +120,13 @@ export default function ProductDetails() {
               </Box>
             </HStack>
 
-            <HStack justifyContent={"space-between"}>
+            <HStack justifyContent={"space-between"} flexWrap={"wrap"} gap={4}>
               <Box>
-                <Heading size={"xs"} textTransform={"uppercase"}>
+                <Heading
+                  size={"xs"}
+                  textTransform={"uppercase"}
+                  textAlign={"center"}
+                >
                   Batteries ?
                 </Heading>
                 <Text pt={2} fontSize={"sm"} textAlign={"center"}>
@@ -165,7 +176,7 @@ export default function ProductDetails() {
           </Stack>
         </CardBody>
 
-        <CardFooter justify={"space-between"} flexWrap={"wrap"}>
+        <CardFooter justify={"space-between"} flexWrap={"wrap"} pt={0}>
           <Button
             flex={"1"}
             variant={"ghost"}

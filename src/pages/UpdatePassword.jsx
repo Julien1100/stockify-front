@@ -81,16 +81,17 @@ export default function UpdatePassword() {
   return (
     <Container>
       <form onSubmit={handleSubmit}>
-        <Card my={10}>
-          <CardHeader>
+        <Card my={{ base: 4, md: 10 }} variant={"filled"}>
+          <CardHeader pb={{ base: 0, md: 5 }}>
             <Flex flex={"1"} gap="4" alignItems={"center"}>
               <Avatar
                 name={`${user.firstName} ${user.lastName}`}
-                bg={"blue.500"}
+                bg={"blue.300"}
+                color={"white"}
                 size={"lg"}
               />
               <Box>
-                <Heading>
+                <Heading size={{ base: "md", md: "lg" }}>
                   {user.firstName} {user.lastName}
                 </Heading>
                 <Text>{roleMap[user.role]}</Text>
@@ -108,6 +109,8 @@ export default function UpdatePassword() {
                   onChange={(e) =>
                     setPassword({ ...password, password: e.target.value })
                   }
+                  shadow={"inner"}
+                  background={"blackAlpha.100"}
                 />
                 <InputRightElement w={"4.5rem"}>
                   <Button
@@ -134,6 +137,8 @@ export default function UpdatePassword() {
                       confirmedPassword: e.target.value,
                     })
                   }
+                  shadow={"inner"}
+                  background={"blackAlpha.100"}
                 />
                 <InputRightElement w={"4.5rem"}>
                   <Button
