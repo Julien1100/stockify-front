@@ -3,6 +3,7 @@ import {
   Box,
   Button,
   Heading,
+  Hide,
   List,
   ListIcon,
   ListItem,
@@ -24,6 +25,7 @@ export default function Sidebar() {
       <List
         fontSize={"1.1em"}
         spacing={{ md: 2 }}
+        gap={{ base: 4, md: 0 }}
         pb={"10px"}
         display={"flex"}
         flexDir={{ base: "row", md: "column" }}
@@ -32,7 +34,9 @@ export default function Sidebar() {
         <ListItem>
           <NavLink to="/">
             <Button colorScheme="blue" size={"lg"}>
-              <ListIcon as={DragHandleIcon} />
+              <Hide below="md">
+                <ListIcon as={DragHandleIcon} />
+              </Hide>
               Dashboard
             </Button>
           </NavLink>
@@ -41,7 +45,9 @@ export default function Sidebar() {
         <ListItem>
           <NavLink to="profile">
             <Button colorScheme="blue" size={"lg"}>
-              <ListIcon as={AtSignIcon} />
+              <Hide below="md">
+                <ListIcon as={AtSignIcon} />
+              </Hide>
               Profile
             </Button>
           </NavLink>
