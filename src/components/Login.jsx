@@ -67,7 +67,7 @@ export default function Login() {
 
   return (
     <>
-      <Container mb={6}>
+      <Container my={10}>
         <Image src={logo} alt="Logo de Stockify" />
       </Container>
       <Center>
@@ -91,7 +91,7 @@ export default function Login() {
                   />
 
                   <FormLabel>Mot de passe</FormLabel>
-                  <InputGroup mb={4}>
+                  <InputGroup mb={5}>
                     <Input
                       value={password}
                       onChange={handlePassword}
@@ -112,7 +112,11 @@ export default function Login() {
                     </InputRightElement>
                   </InputGroup>
 
-                  <ButtonGroup gap={4}>
+                  <ButtonGroup
+                    gap={2}
+                    flexWrap={"wrap"}
+                    justifyContent={"center"}
+                  >
                     <Button colorScheme="blue" type="submit">
                       Connexion
                     </Button>
